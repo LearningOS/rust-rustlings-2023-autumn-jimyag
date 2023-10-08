@@ -11,8 +11,9 @@
 fn main() {
     let mut x = 100;
     let y = &mut x;
-    let z = &mut x;
     *y += 100;
+    // 只能存在一个可变引用
+    let z = &mut x;
     *z += 1000;
     assert_eq!(x, 1200);
 }
