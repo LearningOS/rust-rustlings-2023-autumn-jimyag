@@ -7,7 +7,7 @@ fn main() {
     // called `TEST_FOO`. Print in the standard output to let
     // Cargo do it.
     let timestamp = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_secs();
-    std::env::set_var("TEST_FOO", timestamp.to_string());
+    println!("cargo:rustc-env=TEST_FOO={}", timestamp.to_string());
     // In tests8, we should enable "pass" feature to make the
     // testcase return early. Fill in the command to tell
     // Cargo about that.
